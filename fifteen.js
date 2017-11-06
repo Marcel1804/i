@@ -1,3 +1,4 @@
+//multiple background
 $(document).ready(function (){
 
   //store the puzzle Area div
@@ -91,20 +92,20 @@ $(document).ready(function (){
             $(title[11]).css({"background-position": "100px 200px"});
               }
         }
-
 function shuffle() {
-    console.log("ok");
-    let index=Math.floor(Math.random()*14);
+    let index=14;
     let stop= 0;
     let change = Math.floor(Math.random()*14);
+    let photo=Math.floor(Math.random()*5);
+    let url;
+    console.log(index,change,"b");
 
-    while(stop<15)
+  /*  while(stop<15)
     {
               if(testIfMovable(title[index])===true)
               {
                 console.log(index,change,"b");
                 move(title[index]);
-
               }
               else{
                         if(testIfMovable(title[index+change])===true && index+change<14)
@@ -118,12 +119,36 @@ function shuffle() {
                             move(title[index-change]);
                         }
                  }
-             index = Math.floor(Math.random()*14);
+             index;
+
              console.log(index,"change index");
              stop+=1;
              console.log(stop);
-        }
-
+        }*/
+      if (photo===0)
+            {
+            url="url(background.jpg)";
+           }
+     else if (photo===1)
+          {
+          url="url(https://vignette.wikia.nocookie.net/wiiu/images/5/5e/New-Super-Mario-Bros-Art-21-400x400.jpg/revision/latest?cb=20121029024830)";
+           }
+     else if (photo===2)
+             {
+              url="url(http://www.commongroundgroup.net/wp-content/uploads/2011/10/earth-from-space-western-400x400.jpg)";
+              }
+      else if (photo===3)
+              {
+              url="url(https://upload.wikimedia.org/wikipedia/commons/6/67/Hoffl%C3%B6th%28T%C3%B6Vo-Cl%C3%B6rath%29-2%28400x400%29.jpg)";
+            }
+      else if (photo===4)
+            {
+            url="url(http://www.webdagoo.com/wp-content/uploads/2011/05/AngryBirds-400x400.jpg)";
+          }
+      for(let i=0; i<15;i++)
+            {
+            $(title[i]).css({"background-image": url});
+          }
     }
 
 function runMove(starter,el) {
