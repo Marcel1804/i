@@ -22,7 +22,6 @@ $(document).ready(function (){
 //set up the inital puzzlearea
   start();
 
-
 //set up the inital puzzlearea
  function start() {
    //track of the box in order to add the left value to them
@@ -92,40 +91,48 @@ $(document).ready(function (){
             $(title[11]).css({"background-position": "100px 200px"});
               }
         }
+//shuffle funtion
 function shuffle() {
-    let index=14;
+
+    let starts=Math.floor(Math.random()*2);
+    let index;
+        if (starts===0)
+        {
+          index=14;
+        }
+        else {
+          index=11;
+        }
     let stop= 0;
-    let change = Math.floor(Math.random()*14);
     let photo=Math.floor(Math.random()*5);
     let url;
-    console.log(index,change,"b");
-
-  /*  while(stop<15)
+    let seq=starts;
+    while(stop<15)
     {
-              if(testIfMovable(title[index])===true)
-              {
-                console.log(index,change,"b");
-                move(title[index]);
-              }
-              else{
-                        if(testIfMovable(title[index+change])===true && index+change<14)
-                        {
-                          console.log(index+change);
-                          move(title[index+change]);
-                        }
-                        else if(testIfMovable(title[index-1])===true && index+change>0)
-                        {
-                             console.log(index-change);
-                            move(title[index-change]);
-                        }
-                 }
-             index;
-
-             console.log(index,"change index");
-             stop+=1;
-             console.log(stop);
-        }*/
-      if (photo===0)
+       if(testIfMovable(title[index])===true)
+       {
+         move(title[index])
+       }
+       if(seq===1){
+         index-=1;
+         seq=0;
+       }
+       if(seq===0){
+         index-=4;
+         seq=1;
+       }
+       if(index<4){
+         index+=4*2;
+       }
+       if(index<3){
+         index+=2*4;
+       }
+       if(index<2){
+         index+=2+10;
+       }
+      stop+=1;
+    }
+        if (photo===0)
             {
             url="url(background.jpg)";
            }
