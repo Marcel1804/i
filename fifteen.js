@@ -31,6 +31,34 @@ $(document).ready(function (){
    //to run the move function eventlistener
       let starter=0
 
+  // random chose a
+    let photo=Math.floor(Math.random()*5);
+    let url;
+      if (photo===0)
+          {
+          url="url(background.jpg)";
+         }
+    else if (photo===1)
+        {
+        url="url(https://vignette.wikia.nocookie.net/wiiu/images/5/5e/New-Super-Mario-Bros-Art-21-400x400.jpg/revision/latest?cb=20121029024830)";
+         }
+    else if (photo===2)
+           {
+            url="url(http://www.commongroundgroup.net/wp-content/uploads/2011/10/earth-from-space-western-400x400.jpg)";
+            }
+    else if (photo===3)
+            {
+            url="url(https://upload.wikimedia.org/wikipedia/commons/6/67/Hoffl%C3%B6th%28T%C3%B6Vo-Cl%C3%B6rath%29-2%28400x400%29.jpg)";
+          }
+    else if (photo===4)
+          {
+          url="url(http://www.webdagoo.com/wp-content/uploads/2011/05/AngryBirds-400x400.jpg)";
+        }
+    for(let i=0; i<15;i++)
+          {
+          $(title[i]).css({"background-image": url});
+          }
+
      // add the puzzlepiece class to the children div of the puzzlearea div
       for(i=0;i<title.length;i++)
     	    {
@@ -94,69 +122,41 @@ $(document).ready(function (){
 //shuffle funtion
 function shuffle() {
 
-    let starts=Math.floor(Math.random()*2);
-    let index;
-        if (starts===0)
-        {
-          index=14;
-        }
-        else {
-          index=11;
-        }
+    let starts=Math.floor(Math.random()*14);
+    let el ;
     let stop= 0;
-    let photo=Math.floor(Math.random()*5);
-    let url;
-    let seq=starts;
     while(stop<15)
     {
-       if(testIfMovable(title[index])===true)
-       {
-         move(title[index])
-       }
-       if(seq===1){
-         index-=1;
-         seq=0;
-       }
-       if(seq===0){
-         index-=4;
-         seq=1;
-       }
-       if(index<4){
-         index+=4*2;
-       }
-       if(index<3){
-         index+=2*4;
-       }
-       if(index<2){
-         index+=2+10;
-       }
+      el=title[starts];
+    //split the string into array
+      let intY=""+el.offsetTop
+      let intX=""+el.offsetLeft;
+      let intEmptyY=emptyY.split("p");
+      let intEmptyX=emptyX.split("p");
+
+      //store the empty string in order to make the switch
+      let tempX;
+      let tempY;
+
+
+      tempX=emptyX;
+      emptyX=intX+"px";
+      intX=tempX;
+
+      tempY=emptyY;
+      emptyY=intY+"px";
+      intY=tempY;
+
+      $(el).css({"top": intY,"left":intX});
+      //update the varible
       stop+=1;
-    }
-        if (photo===0)
-            {
-            url="url(background.jpg)";
-           }
-     else if (photo===1)
-          {
-          url="url(https://vignette.wikia.nocookie.net/wiiu/images/5/5e/New-Super-Mario-Bros-Art-21-400x400.jpg/revision/latest?cb=20121029024830)";
-           }
-     else if (photo===2)
-             {
-              url="url(http://www.commongroundgroup.net/wp-content/uploads/2011/10/earth-from-space-western-400x400.jpg)";
-              }
-      else if (photo===3)
-              {
-              url="url(https://upload.wikimedia.org/wikipedia/commons/6/67/Hoffl%C3%B6th%28T%C3%B6Vo-Cl%C3%B6rath%29-2%28400x400%29.jpg)";
-            }
-      else if (photo===4)
-            {
-            url="url(http://www.webdagoo.com/wp-content/uploads/2011/05/AngryBirds-400x400.jpg)";
-          }
-      for(let i=0; i<15;i++)
-            {
-            $(title[i]).css({"background-image": url});
-          }
-    }
+      starts=Math.floor(Math.random()*14);
+      }
+
+
+
+}
+
 
 function runMove(starter,el) {
   if (starter===1)
