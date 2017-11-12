@@ -75,6 +75,9 @@ $(document).ready(function (){
                      $(titles).addClass("movablepiece");
                     }
                    });
+                   $(titles).on("mouseleave",function(){
+                       $(titles).removeClass("movablepiece");
+                       });
 
 
         		if(i>=1)
@@ -213,7 +216,7 @@ function move(el) {
        let intEmptyY=emptyY.split("p");
        let intEmptyX=emptyX.split("p");
 
-       if (intEmptyX[0]===intX && intEmptyY[0]-intY===100|| intEmptyX[0]===intX && intY-intEmptyY[0]===100)
+       if (intEmptyX[0]===intX && intEmptyY[0]-intY===100 || intEmptyX[0]===intX && intY-intEmptyY[0]===100)
        {
          return true;
        }
