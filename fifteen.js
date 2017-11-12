@@ -75,7 +75,7 @@ $(document).ready(function (){
                      $(titles).addClass("movablepiece");
                     }
                    });
-                   $(titles).on("mouseleave",function(){
+                   $(titles).on("mouseout",function(){
                        $(titles).removeClass("movablepiece");
                        });
 
