@@ -129,7 +129,7 @@ function shuffle() {
     {
       el=title[starts];
     //split the string into array
-      let intY=""+el.offsetTop
+      let intY=""+el.offsetTop;
       let intX=""+el.offsetLeft;
       let intEmptyY=emptyY.split("p");
       let intEmptyX=emptyX.split("p");
@@ -152,9 +152,6 @@ function shuffle() {
       stop+=1;
       starts=Math.floor(Math.random()*14);
       }
-
-
-
 }
 
 
@@ -169,7 +166,7 @@ function runMove(starter,el) {
 //move square to empty neighbour
 function move(el) {
        //split the string into array
-        let intY=""+el.offsetTop
+        let intY=""+el.offsetTop;
         let intX=""+el.offsetLeft;
         let intEmptyY=emptyY.split("p");
         let intEmptyX=emptyX.split("p");
@@ -211,7 +208,7 @@ function move(el) {
 
      //test If puzzlepiece is Movable
      function testIfMovable(el) {
-       let intY=""+el.offsetTop
+       let intY=""+el.offsetTop;
        let intX=""+el.offsetLeft;
        let intEmptyY=emptyY.split("p");
        let intEmptyX=emptyX.split("p");
